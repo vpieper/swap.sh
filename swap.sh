@@ -10,7 +10,7 @@ used_swap="$(echo "$free_data" | grep 'Swap:' | awk '{print $3}')"
 
 echo -e "Free memory:\t$total_free kB ($((total_free / 1024)) MB)\nUsed swap:\t$used_swap kB ($((used_swap / 1024)) MB)"
 if [[ $used_swap -eq 0 ]]; then
-    echo "Congratulations! No swap is in use."
+    echo "No swap is in use."
 elif [[ $used_swap -lt $total_free ]]; then
     echo "Freeing swap..."
     /sbin/swapoff -a
